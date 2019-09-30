@@ -1,0 +1,9 @@
+puts "Enter the credit card number:"
+number = gets.chomp
+sum = 0
+
+number.reverse.split("").each_slice(2) do |x,y|
+  sum += x.to_i + (2*y.to_i).divmod(10).sum
+end
+
+p sum%10 == 0 ? 'valid card number' : 'invalid card number'
